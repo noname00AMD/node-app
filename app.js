@@ -19,7 +19,7 @@ app.use(function(req,res,next) {
   });
 app.use(function third(err , req, res ,next){
     console.log("app cuoi");
-    next()
+    res.end(err);
 })
 
 module.exports = app
