@@ -14,12 +14,12 @@ app.get("/user",function second(req,res,next){
     console.log("app 2");
     res.end("user")
 })
-// app.use(function(req,res,next) {
-//     next(new Error("404"));
-//   });
-// app.use(function third(err , req, res ,next){
-//     console.log("app cuoi");
-//     next()
-// })
+app.use(function(req,res,next) {
+    next(new Error("404"));
+  });
+app.use(function third(err , req, res ,next){
+    console.log("app cuoi");
+    next()
+})
 
 module.exports = app
