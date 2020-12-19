@@ -1,0 +1,15 @@
+@mixin make-container() 
+  display: grid
+  width: 100%
+  padding-right: ($grid-gutter-width / 2)
+  padding-left: ($grid-gutter-width / 2)
+  margin-right: auto
+  margin-left: auto
+@mixin make-container-fluid() 
+  display: grid
+  width: 100%
+  margin-right: auto
+  margin-left: auto
+@mixin make-row() 
+  margin-right: ($grid-gutter-width / -2)
+  margin-left: ($grid-gutter-width / -2)
