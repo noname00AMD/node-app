@@ -1,25 +1,21 @@
 "use strict"
 var app = require("./lib/app/app.js")
-var debug = app.debug("app")
+// var debug = app.debug("app")
 var parse = require("./lib/parseUrl")
-
-app.use(function first(req,res,next){
-    debug("app 1");
-    next()
-})
-app.get("/",function second(req,res,next){
-    res.end("home")
-})
+var cookie_parser = require("./lib/cookie-parser")
+var testRouter = require("./routes/testRouter")
+app.get("/test",testRouter)
+app.use(cookie_parser({}))
 app.get("/user",function second(req,res,next){
-    console.log("app 2");
+    console.log("app 2"+ req);
     res.end("user")
 })
+
 app.use(function(req,res,next) {
     next(new Error("404"));
   });
 app.use(function third(err , req, res ,next){
     console.log("app cuoi");
-    res.end(err.message);
+    res.end(JSON.stringify(err));
 })
-
 module.exports = app
