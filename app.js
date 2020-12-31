@@ -1,21 +1,45 @@
 "use strict"
-var app = require("./lib/app/app.js")
+var express =  require("./lib/app")
 // var debug = app.debug("app")
 var parse = require("./lib/parseUrl")
 var cookie_parser = require("./lib/cookie-parser")
-var testRouter = require("./routes/testRouter")
-app.get("/test",testRouter)
+// var testRouter = require("./routes/testRouter")
+var app = new express()
+// app.get("/test",testRouter)
 app.use(cookie_parser({}))
-app.get("/user",function second(req,res,next){
-    console.log("app 2"+ req);
-    res.end("user")
-})
+// app.use(function first (req, res , next){
+//     // res.end("hi")
+//     next()
+// } ,
+// function second(req, res ,next){
+//     next()
+// })
+// app.get("/",function second(req,res,next){
+//     res.end("home")
+// })
 
-app.use(function(req,res,next) {
-    next(new Error("404"));
-  });
-app.use(function third(err , req, res ,next){
-    console.log("app cuoi");
-    res.end(JSON.stringify(err));
-})
-module.exports = app
+// app.get("/user",function second(req,res,next){
+//     res.end("user")
+// })
+
+// app.use(function create_err (req,res,next) {
+//     var err = new Error( "page not found")
+//     err.code = 404
+//     next(err);
+//   });
+// app.use(function third(err , req, res ,next){
+//     console.log(err)
+//     var doc = `<html>
+//         <head>
+//             <title>${err.message}</title>
+//         </head>
+//         <body>
+//             <h1>code : ${err.code}</h1>
+//             <h3>${err.message}</h3>
+//             <h5>${err.stack}</h5>
+
+//         </body>
+//     </html>`
+//     res.end(doc);
+// })
+module.exports = app.handle

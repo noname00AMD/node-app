@@ -1,8 +1,8 @@
-var app = require("../lib/app/app.js")
-var router = app.Router
-router.get("/test/sd" , function(req, res,next){
-    console.log("ok");
+var express = require("../lib/app/")
+var app = new express()
+app.get("/sd" , function(req, res,next){
+    console.log(express);
     res.end("ok")
 })
 
-module.exports = router.handle
+module.exports = app.handle

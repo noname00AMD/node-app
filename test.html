@@ -1,12 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${status} || ${message}</title>
+    <title>Document</title>
 </head>
+
 <body>
-    <h1>${message}</h1>
-    <h3>${status}</h3>
+    <h1 id="txt">0</h1>
+    <button id="dec">btn</button>
+    <button id="rst">btn</button>
+    <button id="inc">btn</button>
+    <script>
+        var txt = document.getElementById("txt")
+        var dec = document.getElementById("dec")
+        var rst = document.getElementById("rst")
+        var inc = document.getElementById("inc")
+        var num = new Number()
+        dec.addEventListener("click", function(){
+            show(--num) 
+        })
+        rst.addEventListener("click", function(){
+            num = 0
+            show(num) 
+        })
+        inc.addEventListener("click", function(){
+            show(++num) 
+        })
+        function show(num){
+            txt.innerHTML = num
+            if(num ===0){
+                txt.style.color = "black"
+            }
+            if(num >0){
+                txt.style.color = "green"
+            }
+            if(num <0){
+                txt.style.color = "red"
+            }
+        }
+
+    </script>
 </body>
+
 </html>
