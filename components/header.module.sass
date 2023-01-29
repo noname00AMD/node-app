@@ -1,0 +1,108 @@
+
+// ------------------- header -------------------------
+
+.top_bar
+    height: 24px
+    background-color: #333
+    div.hot
+    div.right
+        text-align: right
+    a
+        color: #eee
+        line-height: 24px
+        font-weight: 400
+        font-size: 1.3rem
+        letter-spacing: -1px
+        padding: 0 2px
+        margin: 0 5px
+        cursor: pointer
+
+.header
+    height: 48px
+    background-color: #ddd
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.08)
+    .logo
+        a
+            display: block
+            width: 100%
+            height: 48px
+    div.right
+        text-align: right
+        div
+            line-height: 48px
+            display: inline
+            position: relative
+            input
+                height: 24px
+                padding: 0 0 0 10px
+                border-radius: 3px
+                outline: 1px solid #111
+            button
+                height: 24px
+                margin-left: 10px
+                padding: 4px
+                border-radius: 3px
+                cursor: pointer
+                border: 1px solid #111
+            ul.search_dropdown
+                display: none
+                position: absolute
+                top: calc( 100% + 10px )
+                z-index: 1
+
+    // ----------------------- sub-header----------------------------------
+.subheader
+    position: sticky
+    top: 0px
+    z-index: 9999
+    height: 34px
+    background-color: #333
+    ul
+        li
+            a
+                display: block
+                transition: all 0.5s
+                p
+                    line-height: 34px
+                    padding: 0 4px 0 10px
+                    letter-spacing: -1px
+                    font-weight: 700
+                    font-size: 1.7rem
+                    color: #ddd
+                    display: inline
+                svg
+                &:hover
+                    background-color: #444
+                    color: #fff
+                &.active
+                    // background-color: #008dd2
+                    color: #ddd
+                    border-radius: 10px
+            ul.dropdown
+                display: none
+                position: absolute
+                z-index: 2
+                top: 100%
+                background-color: #333
+                width: 190px
+                li
+                    border-bottom: 2px solid green
+                    display: block
+                    a
+                        display: block
+                        font-size: 1.6rem
+                        padding: 4px 5px
+                        color: #ddd
+                        white-space: nowrap
+                    &:last-child
+                        border-bottom-left-radius: 5px
+                        border-bottom-right-radius: 5px
+            &:hover
+                ul.dropdown
+                    display: block
+                    li
+                        a
+            &:last-child
+                position: absolute
+                right: 0
+                height: 100%

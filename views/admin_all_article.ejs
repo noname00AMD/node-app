@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="<%= props.siteInfo.lang %> ">
+
+<head>
+    <meta charSet="UTF-8" />
+    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+    <title>
+        <%= props.siteInfo.siteName %>
+    </title>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body>
+
+    <%- include("./components/header.ejs") %>
+
+    <div class="cont">
+        <div class="row">
+            <div class="col-3">
+                <%- include("components/navigationBar") %>
+            </div>
+            <div class="col-9">
+                <ul>
+                <% props.allArticle.forEach((article, index)=> { %>
+                            <li style="margin: 20px 0; font-size: 2rem;">
+                                <a href="/<%=article.slug%>">
+                                    <%=article.title%>
+                                </a>
+                            </li>
+                <%})%>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

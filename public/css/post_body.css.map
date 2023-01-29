@@ -1,0 +1,1 @@
+{"version":3,"sources":["containers/post_body.sass"],"names":[],"mappings":"AAAA;EACI;;AACA;EACI","file":"post_body.css","sourcesContent":[".post_body\n    max-width: 1140px\n    h1.title\n        font-size: 3rem\n"]}

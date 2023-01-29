@@ -1,0 +1,130 @@
+<div class="top_bar">
+    <div class="cont-fluid">
+        <div class="row">
+            <div class="col-2 logo">
+                <div style=" width: 168px">
+                    <a href="/" title="home"
+                       style="  background-image: url('/images/logo.png');background-repeat :no-repeat;  background-size: 100% 100%">
+                    </a>
+                </div>
+            </div>
+            <div class="col-2 time">
+                <time id="time"></time>
+                <script>
+                    document.getElementById("time").innerHTML = (new Date()).toDateString()
+                </script>
+            </div>
+            <div class="col-2 lang">
+                eng vi
+            </div>
+            <div class="col-2">
+                <a href="/<%= props.admin_path %>">
+                    Admin
+                </a>
+                <a href="/signup">signup</a>
+                <a href="/signin">signin</a>
+            </div>
+            <div class="col-2">
+                <div>
+                    <input placeholder="tim kiem" type="text"/>
+                    <ul class="search_dropdown hidden">
+                        <li>
+                            asdas
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-2">
+                <button type="submit">Search</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<header class="header">
+    <div class="cont">
+        <div class="row">
+            <ul class="col-12 ">
+
+                <% props.categories.forEach((category, index)=> { %>
+                    <% if(category.type == "category" && category.visible == true ){ %>
+                        <% if(index <= 5){ %>
+                            <li class="category">
+                                <a href="/<%= category.slug %>">
+                                    <%= category.cate_name %>
+                                </a>
+                                <%# if(sub.length !== 0) { %>
+                                <!--                                    <svg width="10px" height="10px">-->
+                                <!--                                        <polyline points="1,2 5,5 9,2" stroke="#ddd" strokeWidth={2} fill="none"-->
+                                <!--                                                  strokeLinejoin="round" strokeLinecap="round"/>-->
+                                <!--                                    </svg>-->
+                                <!--                                    <ul class="dropdown">-->
+                                <!--                                        <%# sub.forEach((subcate, index)=>{ %>-->
+                                <!--                                            <%# if(subcate.visible == true){ %>-->
+                                <!--                                                <li>-->
+                                <!--                                                    <a href="/<%#= category.slug %>/<%#= subcate.slug %>">-->
+                                <!--                                                        <%#= subcate.cate_name %>-->
+                                <!--                                                    </a>-->
+                                <!--                                                </li>-->
+                                <!--                                            <%# } %>-->
+                                <!--                                        <%# }) %>-->
+                                <!--                                    </ul>-->
+                                <%# } %>
+                            </li>
+                        <% } %>
+                    <% } %>
+                <% }) %>
+                <li style="display:inline-block">
+                    <Link href="/">
+                    <a ref="nofolow" style="lineHeight:34px;letterSpacing:5px;"></a>
+                    </Link>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<script>
+    const el = document.querySelector(".top_bar")
+    const header = document.querySelector(".header")
+    const home = document.createElement("li")
+    home.innerHTML = "<a href='/'>home</a>"
+    home.classList = "home"
+    home.style.opacity = 0
+    home.style.visibility = "hidden"
+    home.style.width = 0
+    home.style.paddingRight = 0
+    home.style.marginRight = 0
+    home.style.transitionDuration = "0.3s";
+    home.style.transitionProperty = "all";
+    home.style.transitionTimingFunction = "ease-in";
+    header.getElementsByClassName("col-12")[0].prepend(home)
+
+    const observer = new IntersectionObserver(
+        ([e]) => {
+            // if (e.isIntersecting) {
+            //     if (!header.getElementsByClassName("home")[0]) {
+            //         header.getElementsByClassName("col-12")[0].prepend(home)
+            //     }else {
+            //         let getheader = header.getElementsByClassName("home")[0]
+            //         getheader.style.opacity = 0
+            //         getheader.style.visibility = "hidden"
+            //         getheader.style.width = 0
+            //         getheader.style.paddingRight = 0
+            //         getheader.style.marginRight = 0
+            //     }
+            // } else {
+            //     //add
+            //     let getheader = header.getElementsByClassName("home")[0]
+            //     getheader.style.opacity = 1
+            //     getheader.style.visibility = "visible"
+            //     getheader.style.width = "auto"
+            // }
+            header.classList.toggle("top")
+            console.log("here")
+        },
+        {threshold: [1]}
+    );
+    observer.observe(el)
+</script>

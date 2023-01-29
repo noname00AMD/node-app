@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "619268725631801320690c53"
+  },
+  "size": 0,
+  "name": "cong nghe",
+  "slug": "cong-nghe",
+  "public": true,
+  "parent": false,
+  "type": "category"
+},{
+  "_id": {
+    "$oid": "61b896c86e069c972b4e7008"
+  },
+  "size": 0,
+  "name": "gai xinh",
+  "slug": "gai-xinh",
+  "public": true,
+  "parent": false,
+  "type": "category"
+},{
+  "_id": {
+    "$oid": "61b896f06e069c972b4e7009"
+  },
+  "size": 0,
+  "name": "gai han",
+  "slug": "gai-han",
+  "public": true,
+  "parent": {
+    "$oid": "61b896c86e069c972b4e7008"
+  },
+  "type": "sub"
+}]

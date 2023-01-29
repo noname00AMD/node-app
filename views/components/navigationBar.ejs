@@ -1,0 +1,52 @@
+
+<ul class="navigationBar">
+    <li>
+        <a href="/"><< Back to Home</a>
+    </li>
+    <li>
+        <a href="/<%= props.admin_path %>">Admin</a>
+    </li>
+    <li>
+        <a href="/<%= props.admin_path %>/article">Articles</a>
+        <ul>
+            <li><a href="/<%= props.admin_path %>/article/add">New Article</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/<%= props.admin_path %>/category">Category</a>
+        <ul>
+            <li><a href="/<%= props.admin_path %>/category/add">New Category</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/<%= props.admin_path %>/user/">User</a>
+        <ul>
+            <li><a href="/<%= props.admin_path %>/user/add">New User</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/<%= props.admin_path %>/media">Media</a>
+        <ul>
+            <li><a href="/<%= props.admin_path %>/media/add">New Media</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/<%= props.admin_path %>/tag">Tag</a>
+        <ul>
+            <li><a href="/<%= props.admin_path %>/tag/add">New Tag</a></li>
+        </ul>
+    </li>
+    <li>
+        <a href="/<%= props.admin_path %>/siteinfo">Site info</a>
+    </li>
+</ul>
+<style>
+    .navigationBar >li{
+        font-size: 1.6rem;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+    .navigationBar >li>ul{
+        margin-left: 10px;
+    }
+</style>

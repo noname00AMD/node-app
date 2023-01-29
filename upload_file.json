@@ -1,0 +1,76 @@
+[{
+  "_id": {
+    "$oid": "6192639f7185432f58a94c39"
+  },
+  "name": "0085hNVrgy1gvert2vj8lj63gg56ox6w02.jpg",
+  "alternativeText": "",
+  "caption": "",
+  "hash": "0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f",
+  "ext": ".jpg",
+  "mime": "image/jpeg",
+  "size": 3165.88,
+  "width": 4480,
+  "height": 6720,
+  "url": "/uploads/0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f.jpg",
+  "formats": {
+    "thumbnail": {
+      "name": "thumbnail_0085hNVrgy1gvert2vj8lj63gg56ox6w02.jpg",
+      "hash": "thumbnail_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "width": 104,
+      "height": 156,
+      "size": 3.83,
+      "path": null,
+      "url": "/uploads/thumbnail_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f.jpg"
+    },
+    "large": {
+      "name": "large_0085hNVrgy1gvert2vj8lj63gg56ox6w02.jpg",
+      "hash": "large_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "width": 667,
+      "height": 1000,
+      "size": 59.57,
+      "path": null,
+      "url": "/uploads/large_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f.jpg"
+    },
+    "medium": {
+      "name": "medium_0085hNVrgy1gvert2vj8lj63gg56ox6w02.jpg",
+      "hash": "medium_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "width": 500,
+      "height": 750,
+      "size": 37.04,
+      "path": null,
+      "url": "/uploads/medium_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f.jpg"
+    },
+    "small": {
+      "name": "small_0085hNVrgy1gvert2vj8lj63gg56ox6w02.jpg",
+      "hash": "small_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f",
+      "ext": ".jpg",
+      "mime": "image/jpeg",
+      "width": 333,
+      "height": 500,
+      "size": 20.1,
+      "path": null,
+      "url": "/uploads/small_0085h_N_Vrgy1gvert2vj8lj63gg56ox6w02_d5c776b12f.jpg"
+    }
+  },
+  "provider": "local",
+  "related": [],
+  "createdAt": {
+    "$date": "2021-11-15T13:41:51.356Z"
+  },
+  "updatedAt": {
+    "$date": "2021-11-15T13:41:51.373Z"
+  },
+  "__v": 0,
+  "created_by": {
+    "$oid": "61925ef1ae12711988d63304"
+  },
+  "updated_by": {
+    "$oid": "61925ef1ae12711988d63304"
+  }
+}]

@@ -1,0 +1,107 @@
+<form action="#">
+      <legend>CSS Custom Checkbox & Radio (IE9+)</legend>
+      
+      
+        <div>
+          <input type="checkbox" name="one" value="check-one" />
+          <label for="one">check one</label>
+        </div>
+        <label>
+          <input type="checkbox" name="check-two" value="check-two" checked />
+          <span>check two</span>
+        </label>
+        <label>
+          <input type="checkbox" name="check-three" value="check-three" />
+          <span>check three</span>
+        </label>
+    
+        <label>
+          <input type="radio" name="radio" value="radio-one" />
+          <span>radio one</span>
+        </label>
+        <label>
+          <input type="radio" name="radio" value="radio-two" checked />
+          <span>radio two</span>
+        </label>
+        <label>
+          <input type="radio" name="radio" value="radio-three" />
+          <span>radio three</span>
+        </label>
+     
+  </form>  
+      
+  <style>
+      label {
+  position: relative;
+  cursor: pointer;
+}
+
+input[type="checkbox"], input[type="radio"] {
+  position: absolute;
+  left: -999em;
+}
+
+input[type="checkbox"] + span:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+  border: 1px solid silver;
+  border-radius: 3px;
+  font: bold 17px/10px  sans-serif;
+  color: #339;
+}
+
+input[type="checkbox"]:checked + span:before {
+  content: "✓";
+  border-color: #336;
+}
+
+input[type="radio"] + span:before {
+  content: "";
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin: 0 8px 0 0;
+  vertical-align: middle;
+  border: 1px solid silver;
+  border-radius: 100%;
+}
+
+input[type="radio"]:checked + span:before {
+  content: "";
+  background: #339;
+  border-color: #336;
+  box-shadow: inset 0 0 1px 2px white;
+}
+
+/* below are just commons styles */
+
+body {
+  width: 25%;
+  min-width: 300px;
+  margin: 40px auto;
+  font: normal 62.5% Verdana, sans-serif;
+}
+
+fieldset {
+  padding: 20px 20px 0;
+  border: 1px solid silver;
+}
+
+legend {
+  padding: 0 5px;
+}
+
+.form-elt {
+  margin: 0 auto 25px;
+}
+
+label {
+  display: block;
+  margin: 0 auto 10px;
+  font-size: 1.2em;
+}
+  </style>

@@ -1,0 +1,31 @@
+{
+ 
+    "description": "chuyen trang gai xinh nhat , gai xinh sexy\n",
+    "siteName": "sexy forever",
+    "keywords": [
+        "gai tung",
+        "gai han"
+    ],
+    "icon": "/favicon.ico",
+    "manifest": "/manifest.json",
+    "themeColor": "#20c4ab",
+    "type": "website",
+    "langCefault": "vi",
+    "langSupport": [
+        {
+            "name": " tieng vieet",
+            "code": "vi"
+        },
+        {
+            "name": "english",
+            "code": "en"
+        }
+    ],
+    "trendingTags": [],
+    "trendingArticles": [],
+    "thumbImg": "/images/logo300x300.png",
+    "thumbTypes": [
+        "wide",
+        "tall"
+    ]
+}

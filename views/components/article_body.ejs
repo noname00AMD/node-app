@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="/css/post_body.css">
+<div class="post_body cont-fluid">
+    <div class="row">
+        <div class="col-12">
+            <%- include('../components/TopAds.ejs') %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-8" style="border: 1px solid black; padding: 0 8px;">
+            <div>
+                <h2>breadcrumb area //</h2>
+                <h1 class="title">
+                    <%= props.article.title %>
+                </h1>
+                <h2 style="display: inline;">author area // </h2>
+                <time style="display: inline;">titme //</time>
+                <h2>like share //</h2>
+            </div>
+            <div style="line-height: 2rem;">
+                <%- props.article.content %>
+            </div>
+        </div>
+        <div class="col-4">
+            <%- include('../components/SidebarAds.ejs') %>
+        </div>
+    </div>
+  
+        <%= props.article.content %>
+
+</div>

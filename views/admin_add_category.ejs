@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="<%= props.siteInfo.lang %> ">
+
+<head>
+    <meta charSet="UTF-8" />
+    <meta httpEquiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta httpEquiv="X-UA-Compatible" content="IE=Edge" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+
+    <title>
+        <%= props.siteInfo.siteName %>
+    </title>
+    <script src="/js/js.js"></script>
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+
+<body>
+    <%- include("./components/header.ejs") %>
+
+        <div class="cont">
+            <div class="row">
+                <div class="col-3">
+                    <%- include("components/navigationBar") %>
+                </div>
+                <div class="col-9">
+                    <!--           form    add category -->
+                    <div style="margin-top: 20px;">
+                        <label for="category">Category name: </label>
+                        <input style="outline: 1px solid black;padding: 2px; font-size: 2.2rem;" id="category" type="text" maxlength="300"
+                            name="category">
+                    </div>
+
+                    <div style="margin-top: 20px;">
+                        <div style="display: inline;position: relative;">
+                            <label for="category">Category slug: </label>
+                            <input style="outline: 1px solid black;padding: 2px;font-size: 2.2rem;" type="text" id="slug" name="slug" maxlength="300">
+                            <svg id="slugGenerate" style="position:absolute;cursor:pointer;right:6px;top:0px;"
+                                width="1.2em" height="1.2em" viewBox="0 0 24 24" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M15.681 2.804A9.64 9.64 0 0011.818 2C6.398 2 2 6.48 2 12c0 5.521 4.397 10 9.818 10 2.03 0 4.011-.641 5.67-1.835a9.987 9.987 0 003.589-4.831 1.117 1.117 0 00-.664-1.418 1.086 1.086 0 00-1.393.676 7.769 7.769 0 01-2.792 3.758 7.546 7.546 0 01-4.41 1.428V4.222h.002a7.492 7.492 0 013.003.625 7.61 7.61 0 012.5 1.762l.464.551-2.986 3.042a.186.186 0 00.129.316H22V3.317a.188.188 0 00-.112-.172.179.179 0 00-.199.04l-2.355 2.4-.394-.468-.02-.02a9.791 9.791 0 00-3.239-2.293zm-3.863 1.418V2v2.222zm0 0v15.556c-4.216 0-7.636-3.484-7.636-7.778s3.42-7.777 7.636-7.778z"
+                                    fill="#212134"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    <label  style="margin-top: 20px;" for="description">Description: </label>
+                    <div>
+                        <textarea style="outline: 1px solid black;width: 100%;font-size: 2.2rem;" id="description" type="text" maxlength="300"
+                            name="description"></textarea>
+                    </div>
+                    <div style="margin-top: 20px;">
+                        <label for="category">Parent category: </label>
+                        <select style="outline: 1px solid black;" id="parent" aria-placeholder="select category"
+                            required
+                            style="width: 200px;padding: 5px;display: block;margin: 5px;border: 1px solid black;"
+                            name="catefories" id="catefories">
+                            <% props.categories.forEach((category, index)=> { %>
+                                <% if(category.type=="category" ){%>
+                                    <option value="<%=category._id%>">
+                                        <%=category.name%>
+                                    </option>
+                                    <% sub=props.categories.filter(cate=> {
+                                        return ((cate.parent == category._id.toString())&&(cate.type=="sub" ))
+                                        })%>
+                                        <% if(sub.length!=0) {%>
+                                            <optgroup label="<%= category.name %>">
+                                                <% sub.forEach((subcate, index)=>{%>
+                                                    <option value="<%=subcate._id%>">
+                                                        <%= subcate.name%>
+                                                    </option>
+                                                    <%}) %>
+                                            </optgroup>
+                                            <% } %>
+                                                <% } %>
+                                                    <% }) %>
+
+                        </select>
+                    </div>
+                    <input style="font-weight: bolder;padding: 10px;cursor: pointer;margin-top: 10px;" type="button"
+                        id="add" value="Add">
+                </div>
+            </div>
+        </div>
+
+</body>
+<style>
+
+</style>
+<script>
+    function textToSlug(slug) {
+        if (typeof slug !== "string") {
+            return false
+        }
+        slug = slug.toLowerCase();
+        slug = slug.replace(/á|à|ả|ạ|ã|ă|ắ|ằ|ẳ|ẵ|ặ|â|ấ|ầ|ẩ|ẫ|ậ/gi, 'a');
+        slug = slug.replace(/é|è|ẻ|ẽ|ẹ|ê|ế|ề|ể|ễ|ệ/gi, 'e');
+        slug = slug.replace(/i|í|ì|ỉ|ĩ|ị/gi, 'i');
+        slug = slug.replace(/ó|ò|ỏ|õ|ọ|ô|ố|ồ|ổ|ỗ|ộ|ơ|ớ|ờ|ở|ỡ|ợ/gi, 'o');
+        slug = slug.replace(/ú|ù|ủ|ũ|ụ|ư|ứ|ừ|ử|ữ|ự/gi, 'u');
+        slug = slug.replace(/ý|ỳ|ỷ|ỹ|ỵ/gi, 'y');
+        slug = slug.replace(/đ/gi, 'd');
+        slug = slug.replace(/\`|\~|\!|\@|\#|\||\$|\%|\^|\&|\*|\(|\)|\+|\=|\,|\.|\/|\?|\>|\<|\'|\"|\:|\;|_/gi, '');
+        slug = slug.replace(/ /gi, "-");
+        slug = slug.replace(/\-\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-\-/gi, '-');
+        slug = slug.replace(/\-\-/gi, '-');
+        slug = '@' + slug + '@';
+        slug = slug.replace(/\@\-|\-\@|\@/gi, '');
+        return slug;
+    }
+    function generateSlug() {
+        if (document.getElementById("slug").value.length < 2) {
+            document.getElementById("slug").style.border = "3px solid red"
+            return
+        }
+        fetch("/<%= props.admin_path %>/category/slug-generate", {
+            method: 'post',
+            body: JSON.stringify({
+                slug: document.getElementById("slug").value
+            }),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+        }).then(function (res) {
+            if (!res.ok) {
+                throw new Error("slugGenerate err" + res.status)
+            }
+            return res.json()
+        }).then(function (data) {
+            console.log(data);
+            if (data.error) {
+                console.error(data.message);
+                document.getElementById("slug").style.border = "3px solid red"
+                return
+            }
+            document.getElementById("slug").value = data.slug
+            document.getElementById("slug").style.border = "3px solid green"
+
+        })
+    }
+    document.getElementById("slugGenerate").addEventListener("click", function (ev) {
+        generateSlug()
+    })
+    document.getElementById("category").addEventListener('focusout', function (ev) {
+        if (document.getElementById("category").value !== "") {
+            document.getElementById("slug").value = textToSlug(document.getElementById("category").value)
+            generateSlug()
+        } else {
+            document.getElementById("slug").value = ''
+            document.getElementById("slug").style.border = "1px solid black"
+        }
+    })
+    document.getElementById("slug").addEventListener("focusout", function (ev) {
+        if (document.getElementById("slug").value !== "") {
+            generateSlug()
+        } else {
+            document.getElementById("slug").value = textToSlug(document.getElementById("category").value)
+            generateSlug()
+        }
+    })
+    window.addEventListener("DOMContentLoaded", function () {
+
+        document.getElementById("add").addEventListener("click", function (ev) {
+            var categoryFormData = new FormData()
+            categoryFormData.append("name", document.getElementById("category").value)
+            categoryFormData.append("description", document.getElementById("description").value)
+            categoryFormData.append("slug", document.getElementById("slug").value)
+            categoryFormData.append("parent", document.getElementById("parent").value)
+            fetch("/<%= props.admin_path %>/category/add", {
+                method: "post",
+                body: categoryFormData,
+                headers: {
+                    'Accept': 'application/json'
+                },
+            }).then(function (res) {
+                if (!res.ok) {
+                    throw new Error("submit err" + res.status)
+                }
+                return res.json()
+            }).then(function (data) {
+                if (data.error) {
+                    console.error(data.message);
+                }
+                createModal(data)
+            })
+        })
+    })
+</script>
+
+</html>

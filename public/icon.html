@@ -1,0 +1,30 @@
+<span class="icon">
+        <span></span>
+        <span></span>
+    </span>
+    <style>
+        .icon{
+            width: 22px;
+            height: 22px;
+            background-color: #33d2fd;
+            border-radius: 50%;
+            display: block;
+            position: relative;
+        }
+        span.icon span{
+            display: block;
+            position: absolute;
+            transform-origin: left center;
+        }
+        span.icon :first-child{
+            width: 5px;
+            border-top: 2px solid #233148;
+            transform: translate(10px,12px) rotate(-135deg) ;
+            
+        }
+        span.icon :last-child{
+            width: 8px;
+            border-bottom: 2px solid #233148;
+            transform: translate(10px,12px) rotate(-45deg) ;
+        }
+    </style>

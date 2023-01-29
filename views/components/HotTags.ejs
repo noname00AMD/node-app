@@ -1,0 +1,13 @@
+<div class="row">
+    <h2 class="hottags col-12">#HotTags</h2>
+    <% props.trendingTags.forEach((tag,i)=> { %>
+        <div  class="tag col-6">
+            <span style="font-size: 28px; color: #ada1a6">
+                <%- i + 1 %>#
+            </span>
+            <a href="/<%-tag.slug%>" style="font-size: 18px" ><%-tag.name%></a>
+        </div>
+        <% }) %>
+
+
+</div>

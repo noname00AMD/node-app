@@ -1,0 +1,7 @@
+1/ run cache with instant1 to 90% ram
+2/ create  instant2 cache with 5% RAM
+    -cache new object view = 0
+    -edit the last object of instant1, add view = 0 
+3/ after 500view of any object in instant2 compare with the last object of instant1
+    *if instant2 > instant1 : replace last object of instant1 with object 500 view
+    *if instant2 < instant1 : clear instant2
