@@ -35,17 +35,16 @@ app.use(session({
     cookie: {
         path: '/',
         httpOnly: true,
-        secure: true, // == true if use HTTPS
-        maxAge: null,
-        domain: undefined,
+        secure: false, // == true if use HTTPS
+        // maxAge: null,
+        // domain: undefined,
         expires: new Date(Date.now() + 14 * 24 * 60 * 60), // == maxAge = 14 day
     },
     key: "inden",
     secret: 'keyboard 32bit',
-
-    resave: true,
+    resave: false,
     rolling: true,
-    unset: 'keep',// or destroy
+    unset: 'destroy',// destroy or keep
     saveUninitialized: true,
     store: new MySQLStore({
         clearExpired: true,

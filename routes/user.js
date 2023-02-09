@@ -30,6 +30,8 @@ router.get('/user/@:slug', async function (req, res, next) {
 router.get("/signup", async function (req, res, next) {
     var props = {}
     var db = connectToDatabase()
+    props.admin_path = admin_path
+    props.host = process.env.HOST
 
     props.categories = category.allCategory
     // console.log("here",props.categories)

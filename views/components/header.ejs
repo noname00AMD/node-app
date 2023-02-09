@@ -46,7 +46,7 @@
     <div class="cont">
         <div class="row">
             <ul class="col-12 ">
-
+                <li class="home"><a>Home</a></li>
                 <% props.categories.forEach((category, index)=> { %>
                     <% if(category.type == "category" && category.visible == true ){ %>
                         <% if(index <= 5){ %>
@@ -75,56 +75,45 @@
                         <% } %>
                     <% } %>
                 <% }) %>
-                <li style="display:inline-block">
-                    <Link href="/">
-                    <a ref="nofolow" style="lineHeight:34px;letterSpacing:5px;"></a>
-                    </Link>
+                <li class="show_all_btn">
+
+                    <a ref="nofolow" href="#" >&#8759</a>
+
                 </li>
             </ul>
         </div>
     </div>
 </header>
-
+<div class="bg"></div>
+<div class="submenu">
+    <div class="cont">
+        <div class="row">
+            <div class="col-3">
+                <h2>The gioi</h2>
+            </div>
+        </div>
+    </div>
+</div>
 <script>
     const el = document.querySelector(".top_bar")
-    const header = document.querySelector(".header")
-    const home = document.createElement("li")
-    home.innerHTML = "<a href='/'>home</a>"
-    home.classList = "home"
-    home.style.opacity = 0
-    home.style.visibility = "hidden"
-    home.style.width = 0
-    home.style.paddingRight = 0
-    home.style.marginRight = 0
-    home.style.transitionDuration = "0.3s";
-    home.style.transitionProperty = "all";
-    home.style.transitionTimingFunction = "ease-in";
-    header.getElementsByClassName("col-12")[0].prepend(home)
-
+    var home = document.getElementsByClassName("header")[0]
     const observer = new IntersectionObserver(
         ([e]) => {
-            // if (e.isIntersecting) {
-            //     if (!header.getElementsByClassName("home")[0]) {
-            //         header.getElementsByClassName("col-12")[0].prepend(home)
-            //     }else {
-            //         let getheader = header.getElementsByClassName("home")[0]
-            //         getheader.style.opacity = 0
-            //         getheader.style.visibility = "hidden"
-            //         getheader.style.width = 0
-            //         getheader.style.paddingRight = 0
-            //         getheader.style.marginRight = 0
-            //     }
-            // } else {
-            //     //add
-            //     let getheader = header.getElementsByClassName("home")[0]
-            //     getheader.style.opacity = 1
-            //     getheader.style.visibility = "visible"
-            //     getheader.style.width = "auto"
-            // }
-            header.classList.toggle("top")
-            console.log("here")
+            if (e.isIntersecting) {
+                home.classList.remove("pin")
+            } else {
+                home.classList.add("pin")
+            }
         },
         {threshold: [1]}
     );
     observer.observe(el)
+
+    var show_all_btn = document.getElementsByClassName("show_all_btn")[0]
+    var bg = document.getElementsByClassName("bg")[0]
+    var submenu = document.getElementsByClassName("submenu")[0]
+    show_all_btn.addEventListener("click", function (event){
+        submenu.style.display = "block"
+        bg.style.display= "block"
+    })
 </script>

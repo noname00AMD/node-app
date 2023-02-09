@@ -45,53 +45,53 @@
             z-index: 1
 
 // ----------------------- sub-header----------------------------------
-@keyframes example
-    from
-        width: 0
-    to
-        width: auto
-@keyframes example2
-    from
-        width: auto
-    to
-        width: 0
 
 .header
-    box-shadow: 0 2px 8px rgba(0, 0, 0, .15)
+    box-shadow: 0 1px 3px rgba(0, 0, 0, .1)
     position: sticky
     position: -webkit-sticky
     top: 0px
     z-index: 9999
     background-color: #fff
-    &.top
-        li.home
-            opacity: 0
-            visibility: hidden
-            width: 0
+    transition: all .4s
+
+    &.pin
+        box-shadow: 0 3px 8px rgba(0, 0, 0, .15)
+        ul.col-12
+            > li.home
+                transform: translateX(0)
+                opacity: 1
+                width: 54.52px
+
     ul.col-12
         position: relative
-        li.home
-            opacity: 1
-            visibility: visible
-            width: auto
+        > li.home
+            transform: translateX(-25%)
+            width: 0
+            opacity: 0
+            a
+                font-weight: 900
+                font-size: 1.65rem
+
         > li
-            transition-duration: 200ms
-            transition-property: width
-            transition-timing-function: cubic-bezier(.7,1,.7,1)
+            transition: all .4s
             display: inline-block
             a
                 line-height: 27px
                 padding: 0px 8px
                 letter-spacing: -1px
-                font-weight: 700
+                font-weight: 600
                 font-size: 1.5rem
                 color: #888
                 display: block
+
                 &:first-letter
                     text-transform: uppercase
-            &:hover:nth-child(odd)> a
+
+            &:hover:nth-child(odd) > a
                 color: #b88000
-            &:hover:nth-child(even)> a
+
+            &:hover:nth-child(even) > a
                 color: #923a3c
 
             ul.dropdown
@@ -118,9 +118,30 @@
                         border-bottom-left-radius: 5px
                         border-bottom-right-radius: 5px
 
-            &:hover
-                ul.dropdown
-                    display: block
-
-                    li
-                        a
+        >li.show_all_btn
+            position: absolute
+            right: 0
+            a
+                font-size: 2.7rem
+                color: #aaa
+                transition: transform 0.3s
+                &:hover
+                    border-radius: 50%
+                    transform: scale(1.1)
+                    color: #923a3c
+.bg
+    position: absolute
+    top: 0
+    left: 0
+    height: 100%
+    display: none
+    width: 100%
+    z-index: 50
+.submenu
+    position: absolute
+    display: none
+    width: 100%
+    z-index: 100
+    .cont
+        .row
+            padding-top: 15px
